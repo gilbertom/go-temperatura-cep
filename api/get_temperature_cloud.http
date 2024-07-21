@@ -1,0 +1,3 @@
+GET https://clean-weather-vccdavtg5q-uc.a.run.app?cep=01530000 HTTP/1.1
+Host: clean-weather-vccdavtg5q-uc.a.run.app
+Content-Type: application/json

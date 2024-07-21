@@ -1,0 +1,26 @@
+package usecase
+
+import "github.com/gilbertom/go-temperatura-cep/internal/entity"
+
+// CepUsecase represents a use case for working with CEP (Postal Code).
+type CepUsecase struct {
+    repo entity.CepRepository
+}
+
+// NewCepUsecase creates a new instance of CepUsecase.
+func NewCepUsecase(repo entity.CepRepository) *CepUsecase {
+    return &CepUsecase{repo: repo}
+}
+
+// GetLocalityByCep retrieves the locality information for a given CEP (Postal Code).
+func (u *CepUsecase) GetLocalityByCep(cep string) (*entity.Cep, error) {
+    return u.repo.GetLocalityByCep(cep)
+}
+
+// ValidateCep validates a CEP (Postal Code).
+func (u *CepUsecase) ValidateCep(cep string) bool {
+    if len(cep) != 8 {
+        return false
+    }
+    return true
+}
