@@ -7,6 +7,3 @@ services:
       - "8080:8080"
     command: ["./cloudrun"]
 
-  test:
-    build: .
-    command: ["go", "test", "./..."]

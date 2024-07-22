@@ -22,7 +22,8 @@ func main() {
     HTTPHandler := webserver.NewHTTPHandler(cepUsecase, weatherUsecase)
 
     http.HandleFunc("/", HTTPHandler.GetTemperaturesByCep)
-    fmt.Println("Server running on port 8080")
+    
+    fmt.Println("Server running on port", config.AppConfig.PortHTTP)
     if err := http.ListenAndServe(":"+config.AppConfig.PortHTTP, nil); err != nil {
         panic(err)
     }
