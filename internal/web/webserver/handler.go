@@ -51,6 +51,7 @@ func (h *HTTPHandler) GetTemperaturesByCep(w http.ResponseWriter, r *http.Reques
     }
 
     response := dto.WeatherResponse{
+        City:       locality.Localidade,
         Celsius:    weather.Current.TempC,
         Fahrenheit: h.weatherUsecase.ConvertCelsiusToFahrenheit(weather.Current.TempC),
         Kelvin:     h.weatherUsecase.ConvertCelsiusToKelvin(weather.Current.TempC),
